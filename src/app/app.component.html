@@ -1,0 +1,42 @@
+<div class="card">
+  <h5 class="card-header">EMI Calculator</h5>
+  <div class="card-body">
+      <form #form="ngForm">
+          <div class="form-row">
+              <div class="form-group col-5">
+                <label for="principle" class="form-label">Principle Amount</label> 
+                <input class="input-field" type="number" [(ngModel)]="model.principle" name="principle"> 
+                <ngx-slider [(value)]="model.principle" [options]="principleOptions"></ngx-slider>  
+                             
+              </div>
+              <div class="form-group col-5">
+                <label for="interest" class="form-label">Annual Interest Rate</label>
+                <input class="input-field" type="number" [(ngModel)]="model.interest" name="interest">
+                <ngx-slider [(value)]="model.interest" [options]="interestOptions"></ngx-slider>  
+                              
+              </div>
+              <div class="form-group col-5">
+                <label for="duration" class="form-label">Duration in months</label>
+                <input class="input-field" type="number" [(ngModel)]="model.duration" name="duration">
+                <ngx-slider [(value)]="model.duration" [options]="durationOptions"></ngx-slider>
+              </div> 
+          </div>
+      </form>
+      <div class="result">
+        <div class="result-data">
+          <span class="emi-details">EMI : {{ EMI }} </span>
+          <span class="emi-details">Total : {{ EMI * model.duration }} </span>
+          <span class="emi-details">Interest Paid : {{ totalInterest }} </span>
+        </div>
+        <div>
+          <pie-chart *ngIf="totalInterest" [principle]="model.principle" [interest]="totalInterest" ></pie-chart>
+        </div>
+      </div>
+      
+      
+  </div>
+</div>
+
+
+
+
