@@ -1,4 +1,4 @@
-# CI
+# EMI CALCULATOR
 
 This project calculates the EMI amout depending on the principle , interest and duration.It also has a pie-chart depicting the principle amount and interest paid.
 
